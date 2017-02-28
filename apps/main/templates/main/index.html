@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%load static%}
+        <meta charset="utf-8">
+        <title>Welcome</title>
+        <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    </head>
+    <body>
+      <div class="Banner">
+        <h1>Login Page</h1>
+      </div>
+        <div id="wrapper">
+            {% if messages %}
+            <ul class="list-group">
+                {% for message in messages %}
+                <li class="list-group-item list-group-item-danger">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="Fields">
+              <div class="Register_Form">
+                  <form action="/register_user" method="POST">
+                      {% csrf_token %}
+                      <h3>Registration</h3>
+                      <div class="">
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" value="">
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="alias">Alias: </label>
+                        <input type="text" name="alias" value="">
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" value="">
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="password">Password: </label>
+                        <input type="text" name="password" value="">
+                        *Password should be at least 8 characters
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="confirm_password">Confirm pw: </label>
+                        <input type="text" name="confirm_password" value="">
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="date_of_birth">Date of Birth: </label>
+                        <input type="date" data-date-inline-picker="true" name="date_of_birth" value="">
+                        <br>
+                      </div>
+                      <br>
+                      <input type="submit" value="Register">
+                  </form>
+                </div>
+                  <div class="Login_Form">
+                    <form action="/login_user" method="post">
+                      <h3>Login</h3>
+                      {% csrf_token %}
+                      <div class="">
+                        <label for="email">Email: </label>
+                        <input type="text" name="email" value="">
+                        <br>
+                      </div>
+                      <div class="">
+                        <label for="password">Password: </label>
+                        <input type="text" name="password" value="">
+                        <br>
+                      </div>
+                      <br>
+                      <input type="submit" value="Login">
+                    </form>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

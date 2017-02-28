@@ -1,0 +1,61 @@
+#wrapper{
+margin: 10px auto;
+width:75%;
+text-align: center;
+}
+
+.quotes{
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 20%;
+}
+
+.Register_Form{
+display: inline-block;
+border: 1px solid black;
+/*margin-left: 480px;*/
+margin: 10px auto;
+width: 336px;
+border-radius: 10px;
+padding: 20px;
+/*margin-left: 60px;*/
+}
+.Login_Form{
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 336px;
+  /*margin-left: 190px;*/
+}
+.Fields {
+    margin-top: 175px;
+}
+.Register_Form{
+        width: 400px;
+        clear: both;
+}
+.Register_Form input {
+width: 100%;
+clear: both;
+}
+.Login_Form{
+        width: 400px;
+        clear: both;
+}
+.Login_Form input {
+width: 100%;
+clear: both;
+}
+.Add_Book_Form{
+  width: 400px;
+  clear: both;
+}
+.Add_Book_Form input{
+  width: 100%;
+  clear: both;
+}
+.books_output hr{
+  width: 200px;
+}

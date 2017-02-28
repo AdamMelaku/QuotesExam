@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+  </head>
+  <body>
+    <h2>Posts by {{user.name}}</h2>
+    <h3>Count {{posts.count}}</h3>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+
+    {% if posts%}
+    {% for post in posts%}
+    <div class="quotes">
+      {{post.author}} : {{post.message}}
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
+  </body>
+</html>

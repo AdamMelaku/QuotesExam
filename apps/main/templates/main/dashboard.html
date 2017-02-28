@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {%load static%}
+    <meta charset="utf-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  </head>
+  <body>
+
+    <h1>Hello {{user.name}}</h1>
+    <a href="/logout">Logout</a>
+    <h3>Quoteable Quotes</h3>
+    {%if quotes%}
+    {% for quote in quotes%}
+    <div class="quotes">
+      {{quote.author}}: {{quote.message}}
+      <br>
+      <p>Posted By: <a href="users/{{quote.user.id}}">{{quote.user.name}}</a></p>
+      <button type="button" name="button"><a href="favorites/{{quote.id}}">Add to My List</a></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h3>Your Favorites</h3>
+    {%if favorites%}
+    {%for favorite in favorites%}
+    <div class="quotes">
+      {{favorite.quote.author}}: {{favorite.quote.message}}
+      <br>
+      <p>Posted By: <a href="users/{{favorite.quote.user.id}}">{{favorite.quote.user.name}}</a></p>
+      <button type="button" name="button"><a href="remove/{{favorite.quote.id}}">Remove from List</a></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <h3>Contribue a Quote:</h3>
+    <form action="/add_quote" method="post">
+      {% csrf_token %}
+      <div class="">
+        <label for="author">Quote By: </label>
+        <input type="text" name="author" value="">
+        <br>
+      </div>
+      <div class="">
+        <label for="message">Message: </label>
+        <textarea name="message" rows="8" cols="80"></textarea>
+        <br>
+      </div>
+      <input type="submit" name="submit" value="Submit">
+      {% if messages %}
+      <ul class="list-group">
+          {% for message in messages %}
+          <li class="list-group-item list-group-item-danger">{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+    </form>
+  </body>
+</html>
